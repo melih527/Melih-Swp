@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+  
+      <persistence-unit name="bsp01" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+     
+      <!-- ALLE Entity KLassen hier aufzählen -->  
+      <class>at.ac.htlinn.jpa.bsp01.Student1</class>
+      <class>at.ac.htlinn.jpa.bsp01.Student2</class>
+      <class>at.ac.htlinn.jpa.bsp01.Wohnort</class>
+      <class>at.ac.htlinn.jpa.bsp01.Person</class>
+      <class>at.ac.htlinn.jpa.bsp01.Autor</class>
+      <class>at.ac.htlinn.jpa.bsp01.Skriptum</class>
+       <class>at.ac.htlinn.jpa.bsp01.User</class>
+       <class>at.ac.htlinn.jpa.bsp01.Chat</class>
+       
+       
+      
+      
+    <properties>
+      <!-- JDBC Connection Info -->
+      <property name="javax.persistence.jdbc.driver"   value="com.mysql.jdbc.Driver" />
+      <property name="javax.persistence.jdbc.url"      value="jdbc:mysql://localhost/jpa_bsp1" />
+      <property name="javax.persistence.jdbc.user"     value="root" />
+      <property name="javax.persistence.jdbc.password" value="" />
+      
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+       <!--  Werte: 
+       		create-tables, create-or-extend-tables, drop-and-create-tables, none
+   		-->
+   		
+      <property name="eclipselink.ddl-generation.output-mode" value="both"/>
+       <!-- oder nur: value='database' -->
+      <property name="eclipselink.create-ddl-jdbc-file-name" value="./sql/bsp01_create.ddl"/>
+      <property name="eclipselink.drop-ddl-jdbc-file-name" value="./sql/bsp01_drop.ddl"/>
+      <property name="eclipselink.logging.level" value="FINE"/>   		
+    </properties>
+  </persistence-unit>
+</persistence>
