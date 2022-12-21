@@ -8,13 +8,13 @@ api = Api(app)
 
 
 
-class statistikWeb(Resource):
+class statistiken(Resource):
     def get(self):
         list = {}
         with open('ergebnisse.txt', 'r') as file:
             list = file.read()
         return list
-api.add_resource(statistikWeb, '/get')
+api.add_resource(statistiken, '/get')
 
 
 
