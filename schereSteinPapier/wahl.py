@@ -123,25 +123,25 @@ def spiel():                    #Das Spiel
                     gameStatus = 0
 
 def menu():                 #Menu hier wird alles angezeigt was man wählen kann
-    exit = False
+    schluss = False
     print("Menu:")
 
-    while exit == False:
-        todo = input("Auswählen: spiel, stats, aktualisieren, loschen oder exit: ")
-        if todo == "spiel":
+    while schluss == False:
+        wahlen = input("Auswählen: spiel, stats, aktualisieren, loschen oder exit: ")
+        if wahlen == "spiel":
            spiel()
-        elif todo == "stats":
+        elif wahlen == "stats":
             print(dataFile)
             print()
-        elif todo == "aktualisieren":
+        elif wahlen == "aktualisieren":
             aktualisieren()
             print("Die Ergebnisse sind auf den aktuellsten Stand\n")
-        elif todo == "loschen":
+        elif wahlen == "loschen":
             loschen()
-            print("Die gespeicherten Daten wurden alle gelöscht!\n")
-        elif todo == "exit":
-            print("Bis zum nächsten mal!")
-            exit = True
+            print("Die gespeicherten Daten wurden alle auf 0 gesetzt!\n")
+        elif wahlen == "exit":
+            print("Bis zum nächsten mal du GAUNER!")
+            schluss = True
 
 
 
