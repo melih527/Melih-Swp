@@ -1,1 +1,1 @@
-{"spieler": 1, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 1, "schere": 0, "spock": 0, "echse": 0}
+{"spieler": 0, "pc": 2, "unentschieden": 0, "stein": 1, "papier": 1, "schere": 0, "spock": 0, "echse": 0}

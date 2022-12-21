@@ -58,7 +58,7 @@ def pickPC():
 
 
 
-def aktualisieren():
+def aktualisieren():                    #Die Daten werden aktualisiert nach der Runde mit dem Befehp
     f = open("ergebnisse.txt", "r")
     saved = f.read()
     if saved:
@@ -70,7 +70,7 @@ def aktualisieren():
     f.close()
 
 
-def loschen():
+def loschen():                  #Die Daten die gespeicherten wurden werden alle auf 0 gesetzt
     dataFile = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}
     countValues = dataFile
     groese = [0, 0, 0, 0, 0]
@@ -85,7 +85,7 @@ def combine(a, b):
 
 
 
-def spiel():
+def spiel():                    #Das Spiel
     aktualisieren()
 
     gameStatus = 1
@@ -115,7 +115,7 @@ def spiel():
                     cont = 1
                     gameStatus = 0
 
-def menu():
+def menu():                 #Menu hier wird alles angezeigt was man wählen kann
     exit = False
     print()
     print("Menu:")
