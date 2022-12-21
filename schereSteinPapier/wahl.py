@@ -1,5 +1,15 @@
-import random
 import json
+import random
+import serverM
+
+
+# using flask_restful
+from flask import Flask
+from flask_restful import Api
+
+app = Flask(__name__)
+# creating an API object
+api = Api(app)
 
 
 
@@ -12,8 +22,9 @@ dataFile = {}
 groese = [0, 0, 0, 0, 0]
 
 
+
 #Methoden
-def checkWinner(spieler, pc):
+def checkWinner(spieler, pc):  #In dieser Methode wird gecheckt wer gewonnen hat das Ergebnis kann auch Unentschieden ausgehn
     indexSpieler = auswahl.index(spieler)
     indexPC = auswahl.index(pc)
     if (indexSpieler + 2) > 4:
@@ -46,13 +57,9 @@ def pickPC():
 
 
     move = groese[len(groese) - 1]
-
     groese.remove(groese[len(groese) - 1])
-
     groese.insert(0, move)
-
     choice = random.choices(auswahl, k=1, weights=groese)
-
     return choice[0]
 
 
@@ -75,7 +82,7 @@ def loschen():                  #Die Daten die gespeicherten wurden werden alle 
     countValues = dataFile
     groese = [0, 0, 0, 0, 0]
     f = open("ergebnisse.txt", "w")
-    json.dump(dataFile, f)
+    json.dump(dataFile, f) # kannst du die Daten direkt in einen Filestream schreiben, diesen musst du natürlich erst öffnen
     f.close()
 
 def combine(a, b):
@@ -127,6 +134,7 @@ def menu():                 #Menu hier wird alles angezeigt was man wählen kann
         elif todo == "stats":
             print(dataFile)
             print()
+            serverM.getDia(dataFile)
         elif todo == "aktualisieren":
             aktualisieren()
             print("Die Ergebnisse sind auf den aktuellsten Stand\n")
