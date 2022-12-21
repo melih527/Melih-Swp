@@ -14,7 +14,7 @@ class statistiken(Resource):
         with open('ergebnisse.txt', 'r') as file:
             list = file.read()
         return list
-api.add_resource(statistiken, '/get')
+api.add_resource(statistiken, '/holen')
 
 
 

@@ -124,7 +124,6 @@ def spiel():                    #Das Spiel
 
 def menu():                 #Menu hier wird alles angezeigt was man wählen kann
     exit = False
-    print()
     print("Menu:")
 
     while exit == False:
@@ -134,7 +133,6 @@ def menu():                 #Menu hier wird alles angezeigt was man wählen kann
         elif todo == "stats":
             print(dataFile)
             print()
-            serverM.getDia(dataFile)
         elif todo == "aktualisieren":
             aktualisieren()
             print("Die Ergebnisse sind auf den aktuellsten Stand\n")
