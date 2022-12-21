@@ -13,9 +13,20 @@ api = Api(app)
 
 
 
-auswahl = ["stein", "papier", "schere", "spock", "echse"]
+auswahl = ["stein",
+           "papier",
+           "schere",
+           "spock",
+           "echse"]
 
-countValues = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}
+countValues = {"spieler": 0,
+               "pc": 0,
+               "unentschieden": 0,
+               "stein": 0,
+               "papier": 0,
+               "schere": 0,
+               "spock": 0,
+               "echse": 0}
 
 dataFile = {}
 
@@ -122,18 +133,18 @@ def spiel():                    #Das Spiel
                     cont = 1
                     gameStatus = 0
 
-def menu():                 #Menu hier wird alles angezeigt was man wählen kann
+def menu():  #Menu hier wird alles angezeigt was man wählen kann
     schluss = False
     print("Menu:")
 
     while schluss == False:
-        wahlen = input("Auswählen: spiel, stats, aktualisieren, loschen oder exit: ")
+        wahlen = input("Auswählen: spiel, stats, speichern, loschen oder exit: ")
         if wahlen == "spiel":
            spiel()
         elif wahlen == "stats":
             print(dataFile)
             print()
-        elif wahlen == "aktualisieren":
+        elif wahlen == "speichern":
             aktualisieren()
             print("Die Ergebnisse sind auf den aktuellsten Stand\n")
         elif wahlen == "loschen":
