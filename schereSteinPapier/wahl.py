@@ -13,24 +13,14 @@ api = Api(app)
 
 
 
-auswahl = ["stein",
-           "papier",
-           "schere",
-           "spock",
-           "echse"]
+auswahl = ["stein", "papier", "schere", "spock", "echse"]
 
-countValues = {"spieler": 0,
-               "pc": 0,
-               "unentschieden": 0,
-               "stein": 0,
-               "papier": 0,
-               "schere": 0,
-               "spock": 0,
-               "echse": 0}
+countValues = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}
 
 dataFile = {}
 
 groese = [0, 0, 0, 0, 0]
+
 
 
 
@@ -50,6 +40,8 @@ def checkWinner(spieler, pc):  #In dieser Methode wird gecheckt wer gewonnen hat
         gewinner = "UNENTSCHIEDEN!"
         countValues["unentschieden"] += 1
     return gewinner
+
+
 
 
 def pickPC():
@@ -76,7 +68,7 @@ def pickPC():
 
 
 
-def aktualisieren():                    #Die Daten werden aktualisiert nach der Runde mit dem Befehp
+def aktualisieren():                    #Die Daten werden aktualisiert nach der Runde mit dem Befehlen
     f = open("ergebnisse.txt", "r")
     saved = f.read()
     if saved:
@@ -88,6 +80,8 @@ def aktualisieren():                    #Die Daten werden aktualisiert nach der 
     f.close()
 
 
+
+
 def loschen():                  #Die Daten die gespeicherten wurden werden alle auf 0 gesetzt
     dataFile = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}
     countValues = dataFile
@@ -96,10 +90,17 @@ def loschen():                  #Die Daten die gespeicherten wurden werden alle 
     json.dump(dataFile, f) # kannst du die Daten direkt in einen Filestream schreiben, diesen musst du natürlich erst öffnen
     f.close()
 
+
+
+
+
 def combine(a, b):
     for key in a:
         dataFile[key] = a[key] + b[key]
     return a
+
+
+
 
 
 
@@ -111,7 +112,7 @@ def spiel():                    #Das Spiel
         print("Was wollen Sie auswählen? (Stein/Papier/Schere/Spock/Echse)")
         auswahlSpieler = str(input().lower())
         if auswahl.count(auswahlSpieler) == 0:
-            print("Please choose an existing shape!")
+            print("Bitte wählen sie etwas was existiert!")
         else:
             countValues[auswahlSpieler] += 1
             auswahlPC = pickPC()
@@ -133,6 +134,10 @@ def spiel():                    #Das Spiel
                     cont = 1
                     gameStatus = 0
 
+
+
+
+
 def menu():  #Menu hier wird alles angezeigt was man wählen kann
     schluss = False
     print("Menu:")
@@ -153,6 +158,8 @@ def menu():  #Menu hier wird alles angezeigt was man wählen kann
         elif wahlen == "exit":
             print("Bis zum nächsten mal du GAUNER!")
             schluss = True
+
+
 
 
 
