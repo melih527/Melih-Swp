@@ -13,13 +13,13 @@ api = Api(app)
 
 
 
-auswahl = ["stein", "papier", "schere", "spock", "echse"]
+auswahl = ["stein", "papier", "schere", "spock", "echse"]   #elemente die man auswählen kann (liste)
 
-countValues = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}
+countValues = {"spieler": 0, "pc": 0, "unentschieden": 0, "stein": 0, "papier": 0, "schere": 0, "spock": 0, "echse": 0}     #dic.
 
-dataFile = {}
+dataFile = {}   #dic.
 
-groese = [0, 0, 0, 0, 0]
+groese = [0, 0, 0, 0, 0]    #liste
 
 
 
@@ -32,13 +32,13 @@ def checkWinner(spieler, pc):  #In dieser Methode wird gecheckt wer gewonnen hat
         indexSpieler = indexSpieler - 5
     if (auswahl[indexSpieler + 2] == auswahl[indexPC]) or (auswahl[indexSpieler - 1] == auswahl[indexPC]):
         gewinner = "Der Spieler hat gewonnen!"
-        countValues["spieler"] += 1
+        countValues["spieler"] += 1     #wenn spieler gewonnen hat wird hochgezählt
     elif (auswahl[indexSpieler - 2] == auswahl[indexPC]) or (auswahl[indexSpieler + 1] == auswahl[indexPC]):
         gewinner = "PC hat gewonnen LOOSER!"
-        countValues["pc"] += 1
+        countValues["pc"] += 1          #wenn pc gewonnen hat wird hochgezählt
     else:
         gewinner = "UNENTSCHIEDEN!"
-        countValues["unentschieden"] += 1
+        countValues["unentschieden"] += 1       #wenn beide das gleiche haben dann wird unentschieden hochgezählt
     return gewinner
 
 
@@ -57,8 +57,7 @@ def pickPC():
             else:
                 groese[zaehle] = dataFile[key]
             zaehle += 1
-
-
+    #hart Modus
     move = groese[len(groese) - 1]
     groese.remove(groese[len(groese) - 1])
     groese.insert(0, move)
@@ -122,12 +121,12 @@ def spiel():                    #Das Spiel
             print("\n Das Ergebnis lautet:  ", win)
             cont = 1
             while cont == 1:
-                print("\nWillst du noch ein Spiel spielen? (ja/nein)")
+                print("\nWillst du noch ein Spiel spielen? (ja/nein)")      #wird abgefragt ob noch ein Spiel
                 ergebnis = input().lower()
-                if ergebnis == "ja":
+                if ergebnis == "ja":            #falls ja dann gamestatus 1 noch ein spiel
                     gameStatus = 1
                     cont = 0
-                elif ergebnis == "nein":
+                elif ergebnis == "nein":        #falls nein dann gamestatus 0 kein spiel
                     cont = 0
                     gameStatus = 0
                 else:

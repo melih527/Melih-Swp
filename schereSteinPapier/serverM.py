@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, jsonify, request, render_template
 from flask_restful import Resource, Api
 import wahl
@@ -15,6 +17,8 @@ class statistiken(Resource):
             list = file.read()
         return list
 api.add_resource(statistiken, '/holen')
+
+
 
 
 
